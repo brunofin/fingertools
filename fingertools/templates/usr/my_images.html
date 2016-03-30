@@ -1,0 +1,7 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<h2>{% trans "My images" %}</h2>
+{% for imagem in imagens %}
+	{% include 'img/thumb.html' with imagem=imagem %}
+{% endfor %}

@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% load i18n %}
+{% load ftprofile %}
+
+{% block corpo %}
+
+{% static 'css/cp.css' as cssCp %}
+{% static "css/tag.css" as cssTag %}
+{% static 'css/default.css' as css %}
+{% static 'css/profile.css' as cssProfile %}
+{% static "css/my_uploads.css" as cssUploads %}
+
+{% include 'css' with src=css %}
+{% include 'css' with src=cssCp %}
+{% include 'css' with src=cssTag %}
+{% include 'css' with src=cssUploads %}
+{% include 'css' with src=cssProfile %}
+
+{% if user.is_authenticated and user.id == profile.user.id %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script>
+//using jQuery
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+$.ajaxSetup({
+    crossDomain: false,
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type)) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+
+$(document).ready(function(){
+	  $("#get_my_images").click(function(){
+		  $("#activityLog").load("/get_my_images");
+	  });
+	  
+	  $("#get_my_texts").click(function(){
+		  $("#activityLog").load("/get_my_texts");
+	  });
+	  
+	  $("#change_password").click(function(){
+		  $("#activityLog").load("/changePassword");
+	  });
+	});
+</script>
+{% endif %}
+
+<div id="body">
+	<div>	
+		<img id="profilePicture" src="{% static profile.get_profile_picture %}" alt="Profile picture" >
+		
+		<div id="profileInfo">
+			<p id="username">{{ profile.get_shown_name }}</p>
+			<p id="userID"># {{ profile.user.id }}</p>
+			<span>{% trans "Imagens" %}: {{ profile.get_images_count }}</span>
+			<span>{% trans "Textos" %}: {{ profile.get_texts_count }}</span>
+			<span>{% trans "Posts" %}: {{ profile.get_posts_count }}</span>
+			<span>{% trans "Redirects" %}: 0</span>
+		</div>
+	</div>
+	
+	<div id="controlPanel">
+	
+	<a class="nodeco" href="/profile/{{ profile.user.id }}">
+		<div {% if id %}id="{{ id }}"{% endif %} class="cpOption trans">
+			<span>{% trans "Activity log" %}</span>
+		</div>
+	</a>
+	
+	{% if user.is_authenticated and user.id == profile.user.id %}
+		{% include 'usr/profile/cpOption.html' with name='Minhas imagens' id='get_my_images' %}
+		{% include 'usr/profile/cpOption.html' with name='Meus textos' id='get_my_texts' %}
+		{% include 'usr/profile/cpOption.html' with name='Meus redirects' id='get_my_redirects' %}
+		{% include 'usr/profile/cpOption.html' with name='Alterar senha' id='change_password' %}
+	{% endif %}
+	</div>
+	
+	<div id="activityLog">
+		{% block contentOfPage %}
+		<h2>{% trans "Activity log" %}</h2>
+		<h4>{% trans "Last Posts" %}</h4>
+		{{ profile.user.id|render_user_posts|safe }}
+		
+		<h4>{% trans "Last Images" %}</h4>
+		{{ profile.user.id|render_user_images|safe }}
+		
+		<h4>{% trans "Last Redirects" %}</h4>
+		{{ profile.user.id|render_user_redirects|safe }}
+		
+		<h4>{% trans "Last Texts" %}</h4>
+		{{ profile.user.id|render_user_texts|safe }}
+
+		{% endblock %}
+	</div>
+	
+</div>
+
+
+{% endblock %}

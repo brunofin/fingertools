@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//fingertools/auth/forms.py=utf-8
+encoding//fingertools/auth/templatetags/ftprofile.py=utf-8
+encoding//fingertools/auth/views.py=utf-8
+encoding//fingertools/base/forms.py=utf-8
+encoding//fingertools/comment/forms.py=utf-8
+encoding//fingertools/comment/templatetags/bbcoder.py=utf-8
+encoding//fingertools/img/forms.py=utf-8
+encoding//fingertools/img/models.py=utf-8
+encoding//fingertools/img/views.py=utf-8
+encoding//fingertools/text/forms.py=utf-8
+encoding//fingertools/text/models.py=utf-8
+encoding//fingertools/text/views.py=utf-8

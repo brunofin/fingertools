@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block css %}
+	{% include 'base/css.html' %}
+	<style type="text/css">
+  		body {
+  			background-image: url('/static/backgrounds/img/random2.jpg');
+  		}
+  </style>
+{% endblock %}
+
+{% block corpo %}
+
+{% include 'selectMenu.js' with elementId='menuButtonImagem' %}
+
+<div class="dialog">
+	<span id="pageTitle" >{% trans "Image upload" %}</span>
+	<div>
+
+		<div>
+
+			<form enctype="multipart/form-data" method="post" action=".">
+				{% csrf_token %}
+				{{ form.as_p }}
+
+				<input type="submit" />
+				<p>{% trans "By clicking on Submit, you agree with the <a href=/tos>Terms of Service</a>." %}</p>
+			</form>
+		</div>
+
+		<div id="errors">{{ errors }}</div>
+
+		<div id="disclaimer">
+			<span>
+				{% if user.is_authenticated %}
+					{% blocktrans %} You're logged in as <b>{{ user }}</b>.<br>This image will be stored into your account and will be available to you later in you uploaded images list. {% endblocktrans %}
+				{% else %}
+					{% blocktrans %} You're not logged in, this image will be uploaded as <b>anonymous</b>.<br>It's not necessary to create an account or to log in to upload or share an image, but doing this will give you control over the uploaded images in the future, like the possibility to see all of your images, details about them or delete them. {% endblocktrans %}
+				{% endif %}
+			</span>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block prefooter %}
+<div id="lastUploads">
+	{% for img in lastUploads %}
+		{% include 'img/last_uploads.html' with img=img %}
+	{% endfor %}
+</div>
+{% endblock %}

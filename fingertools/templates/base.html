@@ -1,0 +1,61 @@
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11-transitional.dtd">
+<html>
+<head>
+{% block meta %}
+	{% include 'base/meta.html' %}
+{% endblock %}
+
+{% block css %}
+	{% include 'base/css.html' %}
+{% endblock %}
+
+{% block head_outros %}
+	{% include 'base/head_outros.html' %}
+{% endblock %}
+
+{% block js %}
+{% endblock %}
+
+<title>{% block title %}FingerTools{% endblock %}</title>
+</head>
+<body>
+
+<div id="container">
+
+<!-- Facebook script -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/{% trans "en_US" %}/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+		
+		<div id="headerContainer">
+			{% block header %}
+				{% include 'base/header.html' %}
+			{% endblock %}
+		</div>
+		
+		<div id="corpo">
+				{% block corpo %}
+					{% include 'base/corpo.html' %}
+				{% endblock %}
+		</div>
+
+		<div id="spaceLeft"></div>
+		
+		<div id="footerContainer">
+			
+				{% block prefooter %}{% endblock %}
+				<div id="footer">
+				{% block footer %}
+					{% include 'base/footer.html' %}
+				{% endblock %}
+				</div>
+		</div>
+</div>
+</body>
+</html>

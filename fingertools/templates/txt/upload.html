@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block css %}
+	{% include 'base/css.html' %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/default.css" %}" >
+	<link rel="stylesheet" type="text/css" href="{% static "css/text.css" %}" >
+	<link rel="stylesheet" type="text/css" href="{% static "css/tag.css" %}" >
+{% endblock %}
+
+{% block corpo %}
+{% include 'selectMenu.js' with elementId='menuButtonCodigo' %}
+
+<div id="body">
+
+	
+	<div id="textForm">
+		<h2>{% trans "Code Upload" %}</h2>
+		<form enctype="multipart/form-data" method="post" action="">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" />
+		</form>
+
+		<div id="errors">{{ errors }}</div>
+
+		<div id="disclaimer">
+			<p>{% trans "By clicking on Submit, you agree with the <a href=/tos>Terms of Service</a>." %}</p>
+			<span>
+				{% if user.is_authenticated %}
+					{% blocktrans %} You're logged in as <b>{{ user }}</b>.<br> This code will be stored into your account and will be available to you later in you uploaded codes list. {% endblocktrans %}
+				{% else %}
+					{% blocktrans %} You're not logged in, this code will be uploaded as <b>anonymous</b>.<br>It's not necessary to create an account or to log in to upload or share a code, but doing this will give you control over the uploaded codes in the future, like the possibility to see all of your codes, details about them or delete them. {% endblocktrans %}
+				{% endif %}
+			</span>
+		</div>
+	</div>
+	
+	<div id="lastTexts">
+		<h3>{% trans "Last uploads" %}</h3>
+			{% for texto in textos %}
+				{% include 'txt/thumb.html' with txt=texto%}
+			{% endfor %}
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+<div class="comment_box">
+
+	<!--  {% include "comment/box_comment.html" %} -->
+
+	{% if user.is_authenticated %}
+		{% include "comment/box_comment.html" %}
+	{% else %}
+		{% include "comment/box_login.html" %} {% endif %}
+
+	<div id="user_comments">
+	
+		{% include "comment/comment.html" with comment=comment %}
+		
+		{% for comment in comments %}
+			{% include "comment/comment.html" with comment=comment %}
+		{% endfor %}
+		
+	</div>
+</div>

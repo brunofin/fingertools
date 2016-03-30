@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load highlighter %}
+
+{% block head %}
+	<!-- Syntax highlight styles file -->
+	<link rel="stylesheet" type="text/css" href="/css/pygments.css" />
+	
+	<title>Finger CODE - {{ txt.titulo }}</title>
+{% endblock %}
+
+{% block body %}
+{% include 'selectMenu.js' with elementId='menuButtonCodigo' %}
+<h2>{% trans "Are you sure you want to remove this code?" %}</h2>
+<p align="center"><b>
+
+<p><a href="/v/{{ txt.id }}/t/remove/yes">{% trans "YES, remove" %}</a>
+  |  <a href="/my_codes">{% trans "NO, go back" %}</a></p><br>
+
+<h2>{{ txt.titulo }}</h2>
+<table bgcolor="white" style="border:1px solid black;" width=100%>
+	<tr><td>
+		{{ txt|html_highlight }}
+	</td></tr>
+</table>
+</p>
+{% endblock %}

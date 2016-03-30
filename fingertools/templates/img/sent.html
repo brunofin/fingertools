@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block body %}
+{% include 'selectMenu.js' with elementId='menuButtonImagem' %}
+<h2>{% trans "Image successfully received" %}</h2>
+{% include 'img/info.html' %}
+{% endblock %}

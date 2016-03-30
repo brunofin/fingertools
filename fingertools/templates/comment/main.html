@@ -1,0 +1,67 @@
+{% load i18n %}
+{% load comments %}
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="/static/css/comment.css" />
+
+<p>
+	<strong>{% trans "Comments" %}</strong>
+</p>
+
+<div class="comment_box">
+	{% if user.is_authenticated %}
+	
+	    {% get_comment_form for obj as form %}
+	    <form action="/comments/post/" method="POST">
+	    	{% csrf_token %}
+	    	{{ form.content_type }}
+	    	{{ form.object_pk }}
+	    	{{ form.timestamp }}
+	    	{{ form.security_hash }}
+	    	{{ form.honeycomb }}
+	    	{{ form.comment }}
+	    	{{ form.captcha }}
+	    	<input type="submit" name="post" class="submit-post" value="Publicar">
+	    </form>
+	    
+	{% else %}
+    	<p><a href="/login"><button class="button">{% trans "Login here to post a comment" %}</button></a></p>
+	{% endif %}
+	
+	{% get_comment_count for obj as count %}
+
+	{% get_comment_list for obj as comments %}
+	
+	<div id="user_comments">
+		{% for comment in comments %}
+			<div class="comment_block" id="{{ comment.id }}">
+				<div class="cb_left">
+					<div class="avatar"
+						style="background-image: url('{% if comment.user.get_profile.picture %}{% static 'comment.user.get_profile.picture' %}{% else %}{% static 'img/profile_pictures/default.jpg' %}{% endif %}');"></div>
+					<a href="/profile/{{ comment.user.id }}">{% if comment.user.get_full_name %}{{ comment.user.get_full_name }}{% else %}{{ comment.user.username }}{% endif %}</a>
+				</div>
+				
+				<div class="cb_right">
+					<span class="comment_id">{% trans "Comment #" %}{{ comment.id }} </span>
+					<a class="comment_id" href="#{{ comment.id }}">({% trans "link to this comment" %})</a>
+					
+					<div class="comment_place">
+						<!-- Quoting HTML can be included here -->
+						<p>{{ comment.comment }}</p>
+					</div>
+					
+					<div class="comment_info">
+						<span>{{ comment.submit_date }}</span>
+						<span><img class="comment_footer_img" src="/static/img/server/up.png" /> {{ comment.upvotes }}</span>
+						<span><img class="comment_footer_img" src="/static/img/server/down.png" /> {{ comment.downvotes }}</span>
+						<!-- <span><img class="comment_footer_img" src="/static/img/server/quote.png" /> QUOTE</span> -->
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+
+
+	<div id="user_comments"></div>
+</div>

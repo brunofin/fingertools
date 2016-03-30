@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block corpo %}
+<link rel="stylesheet" type="text/css" href="{% static "css/default.css" %}" >
+
+<div id="body">
+	<h3>
+		{% if usr.get_full_name %}
+			{{ usr.get_full_name }},
+		{% else %}
+			{{ usr.username }},
+		{% endif %}
+	</h3>
+	<p>{% trans "Welcome! You have successfully registered!" %}</p>
+	<p><a href="/"><button>{% trans "Click here to go back" %}</button></a></p>
+</div>
+{% endblock %}

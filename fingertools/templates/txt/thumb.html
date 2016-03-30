@@ -1,0 +1,8 @@
+<a class="nodeco" href="/v/{{ txt.id }}/t">
+	<div class="textThumb trans">
+		<label id="title">{% if txt %}{{ txt.titulo }}{% else %}Title{% endif %}</label>
+		<label id="language">{% if txt %}{{ txt.language }}{% else %}Java{% endif %}</label>
+		<label id="user">{% if txt %}{{ txt.user }}{% else %}user92{% endif %}</label>
+		<label id="tags">{% for tag in txt.tags.all  %}<span class="tag">{{ tag.tag }}</span>{% endfor %}</label>
+	</div>
+</a>

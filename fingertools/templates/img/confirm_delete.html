@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block body %}
+{% include 'selectMenu.js' with elementId='menuButtonImagem' %}
+<h2>{% trans "Are you sure you want to remove this image?" %}</h2>
+<p><a href="/{{ img.id }}/remove/yes">{% trans "YES, remove" %}</a>
+  |  <a href="/my_images">{% trans "NO, go back" %}</a></p>
+  
+<img src="/{{ img.image }}" 
+	{% if img.heigth > img.witdh %}
+		heigth="500px"
+	{% else %}
+		width="500px"
+	{% endif %}
+	/>
+
+{% endblock %}

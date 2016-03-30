@@ -1,0 +1,58 @@
+body {
+	background-color: rgb(230, 230, 230);
+	color: black;
+}
+
+div#corpo {
+	margin-left: 30px;
+}
+
+.codeArea {
+	border: 1px solid rgb(209, 209, 209);
+	background-color: rgb(253, 253, 253);
+	display: inline-block;
+	width: 100%;
+	overflow-y: auto;
+}
+
+.highlighttable {
+	border-right: 1px solid rgb(255, 221, 221);
+	margin-right: 100px;
+}
+
+.linenos {
+	color: rgb(190, 190, 190);
+	border-right: 1px solid rgb(218, 213, 213);
+}
+
+.inCode {
+	padding-left: 20px;
+	color: rgb(138, 54, 54);
+}
+.codeHeader {
+	border-bottom: 1px solid rgb(218, 213, 213);
+}
+#language {
+	text-transform: uppercase;
+	font-size: 11px;
+}
+
+#title {
+	font-weight: bold;
+	font-size: 17px;
+	text-transform: capitalize;
+	color: rgb(218, 160, 160);
+}
+
+.codeBottom {
+	border-top: 1px solid rgb(218, 213, 213);
+	font-size: 11px;
+	text-transform: uppercase;
+}
+
+.value {
+	font-size: 15px;
+	text-transform: none;
+	padding-right: 40px;
+}
+

@@ -1,0 +1,19 @@
+body {
+	color: rgb(68, 68, 68);
+	background-color: rgb(230, 230, 230);
+}
+
+div#body {
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+}
+
+form input {
+	border: 1px solid grey;
+}
+
+form label {
+	display: inline-block;
+	width: 180px;
+}

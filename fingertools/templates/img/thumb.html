@@ -1,0 +1,10 @@
+{% load i18n %}
+
+<div class="imageDetail trans">
+	{% include 'img/last_uploads.html' with img=imagem %}
+	<div class="imageAbout">
+		<p>{{ imagem.date }} {{ imagem.time }}</p>
+		<p>{{ imagem.views }} {% trans "views" %}</p>
+		<p>{% for tag in imagem.tags.all  %}<span class="tag">{{ tag.tag }}</span>{% endfor %}</p>
+	</div>
+</div>

@@ -1,0 +1,29 @@
+#profilePicture {
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	vertical-align: bottom;
+}
+
+#profileInfo {
+	display: inline-block;
+	height: 200px;
+	padding-left: 25px;
+}
+
+#corpo {
+	margin-top: 1em;
+}
+
+#controlPanel {
+	margin-top: 13px;
+	width: 24.5%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#activityLog {
+	width: 74.5%;
+	display: inline-block;
+	vertical-align: top;
+}

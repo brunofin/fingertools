@@ -1,0 +1,366 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-29 17:09-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: img/forms.py:9
+msgid "Image"
+msgstr "Imagem"
+
+#: img/forms.py:10 templates/img/info.html:24 templates/img/my_images.html:25
+msgid "Description"
+msgstr "Descrição"
+
+#: templates/base.html:17 templates/txt/sent.html:7
+msgid "free media sharing"
+msgstr "compartilhamento de mídia gratuítuo"
+
+#: templates/base.html:30
+msgid ""
+"Free media sharing. It's not necessary to create an account or login to "
+"upload or share an image"
+msgstr ""
+"Compartilhamento de mídia gratuito. Não é necessário criar uma conta ou "
+"estar logado para enviar ou compartilhar uma imagem"
+
+#: templates/base.html:41
+msgid "en_US"
+msgstr "pt_BR"
+
+#: templates/base/header.html:26
+msgid "Logged in as"
+msgstr "Logado como"
+
+#: templates/base/header.html:30
+msgid "Not logged in"
+msgstr "Não logado"
+
+#: templates/base/header.html:42
+msgid "IMAGE UPLOAD"
+msgstr "ENVIO DE IMAGEM"
+
+#: templates/base/header.html:45
+msgid "CODE UPLOAD"
+msgstr "ENVIO DE CÓDIGO"
+
+#: templates/base/header.html:48
+msgid "CONTROL PANEL"
+msgstr "PAINEL DE CONTROLE"
+
+#: templates/base/header.html:52
+msgid "LOGOUT"
+msgstr "SAIR"
+
+#: templates/base/header.html:55
+msgid "SIGN UP/LOG IN"
+msgstr "REGISTRAR/ENTRAR"
+
+#: templates/base/header.html:60 templates/base/header.html.py:81
+#: templates/usr/login.html:21 templates/usr/login.html.py:37
+msgid "Login"
+msgstr "Login"
+
+#: templates/base/header.html:66 templates/usr/cp.html:12
+#: templates/usr/register.html:12
+msgid "Username"
+msgstr "Nome de usuário"
+
+#: templates/base/header.html:74 templates/usr/register.html:16
+msgid "Password"
+msgstr "Senha"
+
+#: templates/base/header.html:85 templates/usr/login.html:17
+msgid "Create account"
+msgstr "Criar uma conta"
+
+#: templates/img/confirm_delete.html:4
+msgid "Are you sure you want to remove this image?"
+msgstr "Tem certeza que deseja remover esta imagem?"
+
+#: templates/img/confirm_delete.html:6 templates/txt/confirm_delete.html:16
+msgid "YES, remove"
+msgstr "SIM, remover"
+
+#: templates/img/confirm_delete.html:7 templates/txt/confirm_delete.html:17
+msgid "NO, go back"
+msgstr "NÃO, voltar"
+
+#: templates/img/info.html:13 templates/img/my_images.html:24
+#: templates/txt/info.html:20 templates/txt/my_codes.html:16
+msgid "Views"
+msgstr "Visualizações"
+
+#: templates/img/info.html:16 templates/txt/info.html:23
+msgid "By"
+msgstr "Por"
+
+#: templates/img/info.html:28 templates/txt/info.html:28
+msgid "Abuse"
+msgstr "Abuso"
+
+#: templates/img/info.html:28
+msgid "Image%20ID:%20"
+msgstr "ID%20da%20imagem:%20"
+
+#: templates/img/info.html:28 templates/txt/info.html:28
+msgid "Abuse%20reason:%20**%20FILL%20HERE%20**"
+msgstr "Motivo%20do%20abuso:%20**%20PREENCHER%20AQUI%20**"
+
+#: templates/img/info.html:28 templates/txt/info.html:28
+msgid "Report abuse"
+msgstr "Reportar abuso"
+
+#: templates/img/info.html:36 templates/txt/info.html:30
+msgid "Share"
+msgstr "Compartilhar"
+
+#: templates/img/info.html:43 templates/txt/info.html:35
+msgid "Share on Facebook"
+msgstr "Compartilhar no Facebook"
+
+#: templates/img/info.html:51
+msgid "Shared via FingerTools.net"
+msgstr "Compartilhado via FingerTools.net"
+
+#: templates/img/info.html:61 templates/txt/info.html:51
+msgid "Link (this page)"
+msgstr "Link (esta página)"
+
+#: templates/img/info.html:61 templates/img/info.html.py:72
+#: templates/img/info.html:82 templates/img/info.html.py:92
+#: templates/img/info.html:105 templates/txt/info.html:51
+msgid "Select"
+msgstr "Selecionar"
+
+#: templates/img/info.html:72
+msgid "Link (direct)"
+msgstr "Link (direto)"
+
+#: templates/img/info.html:82
+msgid "Link (direct alternative)"
+msgstr "Link (direto alternativo)"
+
+#: templates/img/info.html:92
+msgid "Forum BBCode"
+msgstr "BBCode para Fórum"
+
+#: templates/img/info.html:97 templates/img/info.html.py:108
+#: templates/txt/info.html:43
+msgid "Shared via"
+msgstr "Compartilhado via"
+
+#: templates/img/info.html:105
+msgid "HTML Code"
+msgstr "Código HTML"
+
+#: templates/img/last_uploads.html:2 templates/txt/upload.html:34
+msgid "Last uploads"
+msgstr "Últimos Envios"
+
+#: templates/img/my_images.html:8
+msgid "My images"
+msgstr "Minhas imagens"
+
+#: templates/img/my_images.html:27 templates/txt/my_codes.html:28
+msgid "See"
+msgstr "Ver"
+
+#: templates/img/my_images.html:27 templates/txt/my_codes.html:28
+msgid "Remove"
+msgstr "Remover"
+
+#: templates/img/sent.html:4
+msgid "Image successfully received"
+msgstr "Imagem recebida com sucesso"
+
+#: templates/img/upload.html:5
+msgid "Image upload"
+msgstr "Envio de imagem"
+
+#: templates/img/upload.html:15 templates/txt/upload.html:17
+#: templates/usr/cp.html:26 templates/usr/register.html:31
+msgid "Submit"
+msgstr "Enviar"
+
+#: templates/img/upload.html:16 templates/txt/upload.html:18
+msgid ""
+"By clicking on Submit, you agree with the <a href=/v/tos>Terms of Service</"
+"a>."
+msgstr ""
+"Ao clicar em Enviar, você concorda com os <a href=/v/tos>Termos de Uso</a>"
+
+#: templates/img/upload.html:26
+#, python-format
+msgid ""
+" You're logged in as <b>%(user)s</b>.<br>This image will be stored into your "
+"account and will be available to you later in you uploaded images list. "
+msgstr ""
+"Você está logado como <b>%(user)s</b>.<br>Está imagem será relacionada à sua "
+"conta e estará disponível mais tarde em sua lista de imagens enviadas."
+
+#: templates/img/upload.html:28
+msgid ""
+" You're not logged in, this image will be uploaded as <b>anonymous</b>."
+"<br>It's not necessary to create an account or to log in to upload or share "
+"an image, but doing this will give you control over the uploaded images in "
+"the future, like the possibility to see all of your images, details about "
+"them or delete them. "
+msgstr ""
+"Você não está logado no sistema, esta imagem será enviada como <b>anônima.</"
+"b><br>Não é necessário criar uma conta ou estar logado para enviar e "
+"compartilhar uma imagem, porém fazer isto lhe dará controle sobre a imagem "
+"enviada no futuro, como a possibilidade de ver todas as suas imagens e "
+"detalhes sobre elas, deletá-las ou modificá-las."
+
+#: templates/txt/confirm_delete.html:13
+msgid "Are you sure you want to remove this code?"
+msgstr "Tem certeza que deseja remover esta imagem?"
+
+#: templates/txt/info.html:28
+msgid "Code%20ID:%20"
+msgstr "ID%20do%20código:%20"
+
+#: templates/txt/my_codes.html:8
+msgid "My codes"
+msgstr "Meus códigos"
+
+#: templates/txt/my_codes.html:14 text/forms.py:11
+msgid "Title"
+msgstr "Título"
+
+#: templates/txt/my_codes.html:15 text/forms.py:10
+msgid "Language"
+msgstr "Linguagem"
+
+#: templates/txt/my_codes.html:17 text/forms.py:13
+msgid "Exposure"
+msgstr "Exposição"
+
+#: templates/txt/my_codes.html:19 text/models.py:18
+msgid "Private"
+msgstr "Privado"
+
+#: templates/txt/my_codes.html:22 text/models.py:19
+msgid "Not listed"
+msgstr "Não listado"
+
+#: templates/txt/my_codes.html:24 text/models.py:20
+msgid "Public"
+msgstr "Público"
+
+#: templates/txt/sent.html:11
+msgid "Code successfully received!"
+msgstr "Código recebido com sucesso!"
+
+#: templates/txt/upload.html:6
+msgid "Code Upload"
+msgstr "Envio de código"
+
+#: templates/txt/upload.html:28
+#, python-format
+msgid ""
+" You're logged in as <b>%(user)s</b>.<br> This code will be stored into your "
+"account and will be available to you later in you uploaded codes list. "
+msgstr ""
+"Você está logado como <b>%(user)s</b>.<br>Este código será relacionada à sua "
+"conta e estará disponível mais tarde em sua lista de códigos enviados."
+
+#: templates/txt/upload.html:30
+msgid ""
+" You're not logged in, this code will be uploaded as <b>anonymous</b>."
+"<br>It's not necessary to create an account or to log in to upload or share "
+"a code, but doing this will give you control over the uploaded codes in the "
+"future, like the possibility to see all of your codes, details about them or "
+"delete them. "
+msgstr ""
+"Você não está logado no sistema, este código será enviado como <b>anônimo.</"
+"b><br>Não é necessário criar uma conta ou estar logado para enviar e "
+"compartilhar um código, porém fazer isto lhe dará controle sobre o código "
+"enviado no futuro, como a possibilidade de ver todos os seus códigos e "
+"detalhes sobre eles, removê-los ou modificá-los."
+
+#: templates/usr/cp.html:8
+msgid "Control Panel"
+msgstr "Painel de Controle"
+
+#: templates/usr/cp.html:10
+msgid "View images"
+msgstr "Ver imagens"
+
+#: templates/usr/cp.html:11
+msgid "View codes"
+msgstr "Ver códigos"
+
+#: templates/usr/cp.html:13 templates/usr/register.html:28
+msgid "E-mail Address"
+msgstr "Endereço de e-mail"
+
+#: templates/usr/cp.html:14 templates/usr/cp.html.py:20
+msgid "Change password"
+msgstr "Trocar senha"
+
+#: templates/usr/login.html:12
+msgid "I don't have an account"
+msgstr "Não tenho uma conta"
+
+#: templates/usr/login.html:13
+msgid "I already have an account"
+msgstr "Já tenho uma conta"
+
+#: templates/usr/login.html:18
+msgid "Click here to signup"
+msgstr "Clique aqui para criar"
+
+#: templates/usr/register.html:8
+msgid "Signup"
+msgstr "Registrar"
+
+#: templates/usr/register.html:20
+msgid "First name"
+msgstr "Nome"
+
+#: templates/usr/register.html:24
+msgid "Last name"
+msgstr "Sobrenome"
+
+#: templates/usr/successful.html:7
+msgid "Click here to go back"
+msgstr "Clique aqui para voltar"
+
+#: text/forms.py:9
+msgid "Source code"
+msgstr "Código fonte"
+
+#: text/forms.py:12
+msgid "Expiration"
+msgstr "Expira em"
+
+#: text/models.py:11
+msgid "Never"
+msgstr "Nunca"
+
+#: text/models.py:12
+msgid "1 Hour"
+msgstr "1 Hora"
+
+#: text/models.py:13
+msgid "1 Month"
+msgstr "1 Mês"
+
+#: text/models.py:14
+msgid "1 Year"
+msgstr "1 Ano"

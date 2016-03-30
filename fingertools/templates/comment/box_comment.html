@@ -1,0 +1,26 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<div id="comment_area">
+
+	<div class="cb_left">
+		
+		<div class="avatar imgThumb" style="background-image: url('{% if user.get_profile.picture %}{% static 'user.get_profile.picture' %}{% else %}{% static 'img/profile_pictures/default.jpg' %}{% endif %}')"></div>
+		<a href="#">
+			{% if user.get_full_name %}
+				{{ user.get_full_name }}
+			{% else %}
+				{{ user.username }}
+			{% endif %}
+		</a>
+	</div>
+	
+	<div class="cb_right">
+		<form id="comment_form" action="#" method="POST">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" />
+		</form>
+	</div>
+
+</div>

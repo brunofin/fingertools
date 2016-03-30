@@ -1,0 +1,14 @@
+.cpOption {
+	border: 1px solid orange;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.02);
+	margin: 8px;
+	margin-right: 20px;
+	padding: 8px;
+	color: rgb(63, 63, 63);
+}
+
+.cpOption:hover {
+	border: 1px solid blue;
+	background-color: rgba(0, 0, 0, 0.03);
+}

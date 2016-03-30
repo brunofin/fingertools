@@ -1,0 +1,62 @@
+#myUploadsMenu {
+	position: fixed;
+	left: 10px;
+	top: 100px;
+	
+	font-weight: normal;
+	background: #f9f9f9;
+	border: 1px solid #d4d4d4;
+	box-shadow: -1px 1px #f2f2f2;
+	color: #888;
+	padding: 7px;
+	margin-bottom: 15px;
+	font-size: 15px;
+}
+
+#myUploadsMenu ul {
+	padding: inherit;
+}
+
+#myUploadsMenu ul li {
+	list-style-type: none;
+	padding-left: 0px;
+	background: #F3F3F3;
+	width: 180px;
+	border: 1px solid #d4d4d4;
+	box-shadow: -1px 1px #f2f2f2;
+	color: #888;
+	padding: 7px;
+	margin-bottom: 15px;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+.imageDetail {
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 0px;
+	border: 1px solid rgb(214, 214, 214);
+	text-align: left;
+}
+
+.imageDetail:hover {
+	border: 1px solid blue;
+}
+
+.imageAbout {
+	display: inline-block;
+	text-align: left;
+	vertical-align: top;
+}
+
+.imageDetail img {
+	display: inline-block;
+	width: 250px;
+	height: 250px;
+}
+
+.imgThumb {
+	width: 150px;
+	height: 150px;
+}

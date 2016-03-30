@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block css %}
+	{% include 'base/css.html' %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/default.css" %}" >
+	<link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}" >
+{% endblock %}
+
+
+{% block corpo %}
+
+
+
+<div id="body">
+	<div id="login">
+		<h2>{% trans "Log in using any of the following services" %}:</h2>
+		<div class="loginbutton"><img src="{% static "img/server/login/google.png" %}" /> <span>Log in using Google</span></div>
+		<div class="loginbutton"><img src="{% static "img/server/login/facebook.png" %}" /> <span>Log in using Facebook</span></div>
+		<div class="loginbutton">
+			<img src="{% static "img/server/login/fingertools.png" %}" /> 
+			<span>Log in using FingerTools</span>
+			<form action="." method="post">
+				{% csrf_token %}
+				<p>{{ form.username.label_tag }}{{ form.username }}</p>
+				<p>{{ form.password.label_tag }}{{ form.password }}</p>
+				<button type="submit">{% trans "Login" %}</button><a style="font-size: 12px;" href="#">{% trans "forgot password" %}</a>
+				<input type="hidden" name="next" value="{{ LOGIN_REDIRECT_URL }}" />
+			</form>
+			{% if form.errors %}
+				<span class="error">{{ form.non_field_errors }}</span>
+			{% endif %}
+		</div>
+	</div>
+	
+	<div id="signup">
+		<h3>{% trans "Don't have an user account yet?" %}</h3>
+		<p><a href="/signup">{% trans "Click here to sign up" %}</a> {% trans "or use any of the serives listed above." %}</p>
+	</div>
+</div>
+{% endblock %}

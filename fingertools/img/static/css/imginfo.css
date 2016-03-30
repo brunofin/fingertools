@@ -1,0 +1,64 @@
+body {
+	background-color: rgb(230, 230, 230);
+	color: black;
+}
+
+div#mainInfo {
+	width: 100%;
+}
+div#left {
+	display: inline-block;
+	width: 65%;
+	padding-left: 40px;
+}
+
+img.image {
+	width: 100%;
+	border-radius: 5px;
+	display: inline-block;
+}
+
+div.share {
+	padding-right: 40px;
+	display: inline-block;
+	vertical-align: top;
+	float: right;
+	text-align: right;
+}
+
+.share span {
+	display: block;
+}
+
+.shareArea {
+	width: 95%;
+}
+
+.info {
+	width: 87%;
+}
+
+.info span {
+	margin-right: 60px;
+}
+
+.description {
+	margin-bottom: 1em;
+}
+
+.description p {
+	font-size: 14px;
+	font-weight: bold;
+	color: rgb(68, 68, 68);
+	text-transform: uppercase;
+}
+
+.nodesc {
+	color: rgb(207, 207, 207);
+}
+
+.img_tip {
+	margin: 0px;
+	font-size: 12px;
+	float: right;
+}

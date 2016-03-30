@@ -1,0 +1,19 @@
+{% load i18n %}
+{% get_current_language as LANG %}
+
+		<form action="/i18n/setlang/" method="post">
+			{% csrf_token %}
+			<input name="next" type="hidden" value="." />
+			<select name="language" id="countries" style="width:200px;" >
+				<option {% if LANG == "pt-br" %}selected="selected"{% endif %} value='pt-br' data-image="/staticimg/server/msdropdown/icons/blank.gif" data-imagecss="flag br" data-title="Brazil">Português Brasileiro</option>
+				<option {% if LANG == "pl" %}selected="selected"{% endif %} value='pl' data-image="/staticimg/server/msdropdown/icons/blank.gif" data-imagecss="flag pl" data-title="Poland">Polski</option>
+				<option {% if LANG == "en" %}selected="selected"{% endif %} value='en' data-image="/staticimg/server/msdropdown/icons/blank.gif" data-imagecss="flag us" data-title="United States">English</option>
+			</select>
+			<input type="submit" value="Go" />
+		</form>
+
+<script>
+$(document).ready(function() {
+	$("#countries").msDropdown();
+})
+</script>

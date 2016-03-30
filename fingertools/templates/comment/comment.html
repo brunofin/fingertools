@@ -1,0 +1,39 @@
+{% load i18n %}
+
+{% if comments|length == 0 %}
+	<p style="margin-left: 5px;">{% trans "There are no comments yet. Be the first to post a comment!" %}</p>
+{% else %}
+	{% for comment in comments %}
+	
+	<div class="comment_block" id="{{ comment.id }}">
+		<div class="cb_left">
+			
+			<div class="avatar" style="background-image: url('http://cronicasdoskane.files.wordpress.com/2011/05/silhueta_feminina.gif')"></div>
+			<a href="#">{{ comment.user.username }}</a>
+		</div>
+		
+		<div class="cb_right">
+			<span class="comment_id">Comment #{{ comment.id }} </span><a class="comment_id" href="#{{ comment.id }}">({% trans "link to this comment" %})</a>
+			<div class="comment_place">
+				<div class="comment_quote">
+					{% if comment.quote != None %}
+						<p class="quote_header">Author: {{ comment.quote.user.username }} :: {{ comment.quote.date }} - {{ comment.quote.time }}</p>
+						
+						<div>
+							<span class="quote_content">{{ comment.quote.text }}</span>
+						</div>
+					{% endif %}
+				</div>
+			<p>
+				{{ comment.text }}
+			</p>
+			</div>
+			
+			<div class="comment_info">
+				<span>{{ comment.date }} - {{ comment.time }}</span> <span><img class="comment_footer_img" src="/static/img/server/up.png" /> {{ comment.upvotes }}</span> <span><img class="comment_footer_img" src="/static/img/server/down.png" /> {{ comment.downvotes }}</span><span><img class="comment_footer_img" src="/static/img/server/quote.png" /> QUOTE</span>
+			</div>
+		</div>
+	</div>
+	
+	{% endfor %}
+{% endif %}

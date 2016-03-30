@@ -1,0 +1,80 @@
+{% load i18n %}
+{% load highlighter %}
+
+<link rel="stylesheet" type="text/css" href="/static/css/codeinfo.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/imginfo.css" >
+<link rel="stylesheet" type="text/css" href="/static/css/pygments.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/tag.css" >
+
+<div id="infoMain">
+	<div id="left">
+		<div class="codeArea">
+			<div class="codeHeader inCode">
+				<span id="language">{{ txt.language }} : </span><span id="title">{{ txt.titulo }}</span>
+			</div>
+			{{ txt|html_highlight }}
+			<div class="codeBottom inCode">
+				<span>{% trans "By" %}: </span><span class="value">{{ txt.user }}</span>
+				<span>{% trans "Views" %}: </span><span class="value">{{ txt.views }}</span>
+				<span>{{ txt.date }} - {{txt.time}}</span>
+			</div>
+		</div>
+		
+		<div class="reportAbuse" >
+			<a target="_blank" href="mailto:report@finger.net.br?subject={% trans "Abuse" %}&body={% trans "Object%20ID:%20" %}{{ txt.id }}%0A{% trans "Abuse%20reason:%20**%20FILL%20HERE%20**" %}">
+			<input type="button" value="{% trans "Report abuse" %}" /><br>
+			<a target="_blank" href="/tos#abuse">{% trans "What is abuse?" %}</a>
+			</a>
+		</div>
+		
+		<div class="tags">
+			<span class="tagtitle">TAGS: </span>
+			{% for tag in txt.tags.all %}
+				<a href="/tag/{{ tag.tag }}" style="text-decoration: none;" ><span class="tag">{{ tag.tag }}</span></a>
+			{% endfor %}
+		</div>
+		
+		<p><strong>{% trans "Share" %}</strong><br/>
+		<dfn>{% trans "Get links at the top right side of the page" %}</dfn></p>
+		
+		<div id="sharer">
+		
+			<!-- Facebook share button -->
+			<a target="_fb" title="{% trans "Share on Facebook" %}" href="http://www.facebook.com/sharer/sharer.php?u=http://finger.net.br/v/{{ txt.id }}/t"  onClick="window.open(this.href, this.target, 'width=600,height=350'); return false;"><img height=35px src="/static/img/server/f_logo.png"/></a>
+			
+			<!-- Google+ share button -->
+			<div class="g-plus" data-action="share" data-annotation="none" data-height="24" data-href="http://finger.net.br/v/{{ txt.id }}/d"></div>
+			
+			<!-- Twitter button -->
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://finger.net.br/v/{{ txt.id }}/d" data-text="{% trans "Shared via" %} Fingertools.net" data-size="large" data-count="none" data-dnt="true">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		</div>
+		
+		{% include "comment/main.html" with obj=txt %}
+	</div>
+	
+	<div class="share" >
+		<strong>{% trans "Links" %}</strong>
+		
+		<div id="detailedDiv">
+			<form name="detailed">
+				<span>
+					<label>{% trans "Link (direct)" %}:</label>
+					<input type="button" value="{% trans "Select" %}" onClick="javascript:this.form.messageBody.focus();this.form.messageBody.select();">
+				</span>
+				<textarea class="shareArea" rows=2 name="messageBody" wrap="off">http://fingertools.net/v/{{ txt.id }}/t</textarea>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- Place this tag after the last share tag. -->
+<script type="text/javascript">
+  window.___gcfg = {lang: 'pt-BR'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>

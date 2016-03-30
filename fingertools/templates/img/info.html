@@ -1,0 +1,146 @@
+{% load i18n %}
+
+<link rel="stylesheet" type="text/css" href="/static/css/imginfo.css" >
+<link rel="stylesheet" type="text/css" href="/static/css/tag.css" >
+<script src="/static/js/jquery/jquery-1.8.2.min.js"></script>
+<script src='/static/js/jquery/jquery.elevatezoom.js'></script>
+
+<div id="infoMain">
+	<div id="left">
+		<p class="img_tip">{% trans "Tip: mouse over to zoom" %}</p>
+		<img class="image" id="zoom" src="/static/{{ img.image }}" data-zoom-image="/static/{{ img.image }}" />
+		
+		<script type="text/javascript">
+		
+			$("#zoom").elevateZoom({
+			    zoomType: "inner",
+			    cursor: "crosshair",
+			    zoomWindowFadeIn: 500,
+			    zoomWindowFadeOut: 750
+			});
+		
+		</script>
+		
+		<div class="reportAbuse" >
+			<a target="_blank" href="mailto:report@finger.net.br?subject={% trans "Abuse" %}&body={% trans "Object%20ID:%20" %}{{ img.id }}%0A{% trans "Abuse%20reason:%20**%20FILL%20HERE%20**" %}">
+			<input type="button" value="{% trans "Report abuse" %}" /></a>
+			<br>
+			<a target="_blank" href="/tos#abuse">{% trans "What is abuse?" %}</a>
+		</div>
+		
+		<div class="tags">
+			<span class="tagtitle">TAGS: </span>
+			{% for tag in img.tags.all %}
+				<a href="/tag/{{ tag.tag }}" style="text-decoration: none;" ><span class="tag">{{ tag.tag }}</span></a>
+			{% endfor %}
+		</div>
+		
+		<div class="info" >
+			<span>{{ img.date }} - {{img.time}}</span>
+			<span>{% trans "Views" %}: {{ img.views }}</span>
+			{% if img.user == None %}{% else %}
+			<span>{% trans "By" %}: {{ img.user }}</span>
+			{% endif %}
+		</div>
+		
+		<div class="description" >
+			<p>{% trans "Description" %}:</p>
+			{% if img.description == None or img.description == '' %}
+				<span class="nodesc" >{% trans "No description available" %}</span>
+			{% else %}
+				<span class="desc" >{{ img.description }}</span>
+			{% endif %}
+		</div>
+		
+		
+		
+		
+		<p><strong>{% trans "Share" %}</strong><br/>
+		<dfn>{% trans "Get links at the top right side of the page" %}</dfn></p>
+		
+		<div id="sharer">
+		
+			<!-- Facebook share button -->
+			<a target="_fb" title="{% trans "Share on Facebook" %}" href="http://www.facebook.com/sharer/sharer.php?u=http://finger.net.br/v/{{ txt.id }}/t"  onClick="window.open(this.href, this.target, 'width=600,height=350'); return false;"><img height=35px src="/static/img/server/f_logo.png"/></a>
+			
+			<!-- Google+ share button -->
+			<div class="g-plus" data-action="share" data-annotation="none" data-height="24" data-href="http://finger.net.br/v/{{ txt.id }}/d"></div>
+			
+			<!-- Twitter button -->
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://finger.net.br/v/{{ txt.id }}/d" data-text="{% trans "Shared via" %} Fingertools.net" data-size="large" data-count="none" data-dnt="true">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		</div>
+		
+		{% include "comment/main.html" with obj=img %}
+	
+	</div>
+	
+	<div class="share" >
+		<strong>{% trans "Links" %}</strong>
+		
+		<!-- Links TextAreas -->
+		<div id="detailedDiv">
+			<form name="detailed">
+				<span>
+					<label>{% trans "Link (this page)" %}:</label>
+					<input type="button" value="{% trans "Select" %}" onClick="javascript:this.form.messageBody.focus();this.form.messageBody.select();">
+				</span>
+				<textarea class="shareArea" rows=2 name="messageBody" wrap="off">http://fingertools.net/v/{{ img.id }}/d</textarea>
+			</form>
+		</div>
+		
+		<div id="directDiv">
+			<form name="direct">
+				<span>
+					<label>{% trans "Link (direct)" %}:</label>
+					<input type="button" value="{% trans "Select" %}" onClick="javascript:this.form.messageBody.focus();this.form.messageBody.select();">
+				</span>
+				<textarea class="shareArea" rows=2 name="messageBody" wrap="off">http://fingertools.net/v/{{ img.id }}</textarea>
+			</form>
+		</div>
+		
+		<div id="directaltDiv">
+			<form name="directalt">
+				<span>
+					<label>{% trans "Link (direct alternative)" %}:</label>
+					<input type="button" value="{% trans "Select" %}" onClick="javascript:this.form.messageBody.focus();this.form.messageBody.select();">
+				</span>
+				<textarea class="shareArea" rows=2 name="messageBody" wrap="off">http://fingertools.net/static/{{ img.image }}</textarea>
+			</form>
+		</div>
+		
+		<div id="bbcodeDiv">
+			<form name="bbcode">
+				<span>
+					<label>{% trans "Forum BBCode" %}:</label>
+					<input type="button" value="{% trans "Select" %}" onClick="javascript:this.form.messageBody.focus();this.form.messageBody.select();">
+				</span>
+				<textarea class="shareArea" rows=5 name="messageBody">[URL=http://fingertools.net/v/{{ img.id }}][IMG]http://fingertools.net/v/{{ img.id }}[/IMG][/URL]
+					
+					{% trans "Shared via" %} [URL=http://fingertools.net]FingerTools[/URL]</textarea>
+			</form>
+		</div>
+		
+		<div id="htmlDiv">
+				<form name="html">
+				<span>
+					<label>{% trans "HTML Code" %}:</label>
+					<input type="button" value="{% trans "Select" %}" onClick="javascript:this.form.messageBody.focus();this.form.messageBody.select();">
+				</span>
+				<textarea class="shareArea" rows=5 name="messageBody"><a target='_blank' title='FingerTools' href='http://fingertools.net/v/{{ img.id }}/d'><img src='http://fingertools.net/v/{{ img.id }}' border='0'/></a><br>{% trans "Shared via" %} <a target='_blank' href='http://fingertools.net'>FingerTools</a></textarea>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<!-- Place this tag after the last share tag. -->
+<script type="text/javascript">
+  window.___gcfg = {lang: 'pt-BR'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>

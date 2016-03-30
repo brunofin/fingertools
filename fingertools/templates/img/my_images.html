@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block body %}
+
+{% include 'base/ads.html' %}
+{% include 'selectMenu.js' with elementId='menuButtonImagem' %}
+
+<h2>{% trans "My images" %}</h2>
+<br>
+<table width=100%  border=0>
+{% for img in imgs %}
+<tr>
+	<td>
+	<a href="/v/{{ img.id }}/d">
+	<img src="/static/{{ img.image }}" 
+	{% if img.heigth > img.witdh %}
+		heigth="300px"/>
+	{% else %}
+		width="300px"/>
+	{% endif %}
+	</a>
+	</td>
+	<td width="100%">
+		<b>{% trans "Views" %}:</b> {{ img.views }}<br>
+		<b>{% trans "Description" %}:</b> {{ img.description }}<br>
+		<br>
+		<a href="/v/{{ img.id }}/d">{% trans "See" %}</a> | <a href="/v/{{ img.id }}/remove">{% trans "Remove" %}</a>
+	</td>
+</tr>
+
+{% if forloop.counter|divisibleby:3 %}
+	</table>
+	<br>
+	{% include "base/ads.html" %}
+	<br>
+	<table width=100% border=0>
+{% endif %}
+
+
+{% endfor %}
+</table>
+{% endblock %}
+
+{% block ads %}
+{% endblock %}

@@ -1,0 +1,5 @@
+<div id="lastPosts">
+	{% for post in data %}
+		{% include 'usr/profile/post.html' with obj=post %}
+	{% endfor %}
+</div>

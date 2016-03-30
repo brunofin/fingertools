@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>Finger IMG - {{ img.description }}</title>
+{% endblock %}
+
+{% block corpo %}
+	{% include 'selectMenu.js' with elementId='menuButtonImagem' %}
+	{% include 'img/info.html' %}
+{% endblock %}

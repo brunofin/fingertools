@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block head %}
+<!-- Syntax highlight styles file -->
+<link rel="stylesheet" type="text/css" href="/css/pygments.css" />
+
+<title>FingerTools - {% trans "free media sharing" %}</title>
+{% endblock %}
+
+{% block body %}
+
+{% include 'selectMenu.js' with elementId='menuButtonCodigo' %}
+
+<h2>{% trans "Code successfully received!" %}</h2>
+{% include 'txt/info.html' %}
+{% endblock %}

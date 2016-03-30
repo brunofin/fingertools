@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+
+
+{% block css %}
+	{% include 'base/css.html' %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/default.css" %}" >
+	<link rel="stylesheet" type="text/css" href="{% static "css/cp.css" %}" >
+{% endblock %}
+
+{% block corpo %}
+
+<div id="body">
+	<div id="stylized" class="myform" >
+		<h3>{% trans "Control Panel" %}</h3>
+		<h1>{{ user.get_full_name }}</h1>
+		<p><a href="/my_images">{% trans "View images" %}</a></p>
+		<p><a href="/my_codes">{% trans "View codes" %}</a></p><br>
+		<p><b>{% trans "Username" %}:</b> {{ user.username }}</p>
+		<p><b>{% trans "E-mail Address" %}:</b> {{ user.email }}</p>
+		<p><a href="#openPwd">{% trans "Change password" %}</a></p>
+	</div>
+</div>
+
+<div id="openPwd" class="modalDialog">
+	<div>
+		<a href="#close" title="Close" class="close">X</a>
+		<h2>{% trans "Change password" %}</h2>
+		<form action="/change_password/" method="post">
+			{% csrf_token %}
+			<table class="popup">
+				{{ form.as_table }}
+			</table>
+			<p><button type="submit">{% trans "Submit" %}</button></p>
+			<input type="hidden" name="next" value="" />
+		</form>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% load staticfiles %}
+
+<div id="header">
+	<div id="headerContained">
+		<div class="inline" id="logo">
+			<a href="/">
+				<img src="/static/img/server/logo.png" alt="FingerTools" />
+			</a>
+		</div>
+	
+		<a class="nodeco" href="/">
+			<div id="menuButtonImagem" class="normal trans menu inline">
+				<span>Imagem</span>
+			</div>
+		</a>
+	
+		<a class="nodeco" href="/code">
+			<div id="menuButtonCodigo" class="normal trans menu inline">
+				<span>Código</span>
+			</div>
+		</a>
+		
+		<a class="nodeco" href="/redirect">
+			<div id="menuButtonRedirects" class="normal trans menu inline">
+				<span>Redirects</span>
+			</div>
+		</a>
+		
+<!-- 		<a class="nodeco" href="/servers"> -->
+<!-- 			<div id="menuButtonServers" class="normal trans menu inline"> -->
+<!-- 				<span>Servers</span> -->
+<!-- 			</div> -->
+<!-- 		</a> -->
+	
+		<div id="social">
+		<div class="fb-like" data-href="http://fingertools.net/" data-width="80" data-height="45" data-colorscheme="dark" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>		
+		<div id="gplus">
+			<g:plusone></g:plusone>
+		</div>
+		<div id="twitter">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://fingertools.net">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		</div>
+	</div>
+	
+	{% if not user.is_authenticated %}
+		<div class="menuOption inline">
+			<span><a class="nodeco" href="/login/">Login</a></span>
+		</div>
+	{% else %}
+		<div class="userMenuTrigger">
+			
+			<div class="menuOption inline">
+				<div>
+					<span class="userMenuTrigger">{% if user.get_full_name %}{{ user.get_full_name }}{% else %}{{ user.username }}{% endif %}</span>
+				</div>
+			</div>
+			
+			<div id="profilePictureSmall">
+				<img src="{% if user.get_profile.picture %}{% static 'user.get_profile.picture' %}{% else %}{% static 'img/profile_pictures/default.jpg' %}{% endif %}">
+			</div>
+		</div>
+		
+		<div id="userMenu" class="userMenuTrigger">
+			<ul class="nodeco" id="userMenuList" >
+				<li><a class="nodeco" href="/profile/{{ user.id }}">Profile</a></li>
+				<li><a class="nodeco" href="/logout">Logout</a></li>
+				<li><a style="color: yellow;" class="nodeco" href="/premium">Get Premium</a></li>
+			</ul>
+		</div>
+		
+		
+	{% endif %}
+	</div>
+</div>
+

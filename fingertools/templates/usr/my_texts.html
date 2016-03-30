@@ -1,0 +1,7 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<h2>{% trans "My texts" %}</h2>
+{% for texto in textos %}
+	{% include 'txt/thumb.html' with txt=texto %}
+{% endfor %}

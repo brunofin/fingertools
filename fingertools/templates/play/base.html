@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block css %}
+	{% include 'base/css.html' %}
+	<link rel="stylesheet" type="text/css" href="/static/css/play.css" />
+{% endblock %}
+
+{% block head_outros %}
+	{% include 'base/head_outros.html' %}
+	<script type="text/javascript" src="/static/js/play.js"></script>
+{% endblock %}
+
+{% block corpo %}
+	<div id="content" >
+		<div style="margin:0px auto 20px; display: block; width: 600px; height: 80px; border: 1px solid black; background-color: white;">
+			propaganda
+		</div>
+		
+		<div id="play_header">
+			<a class="nodeco" href="#"><span class="play_tab trans" style="float: right;">Settings</span></a>
+			<a class="nodeco" href="#"><span class="play_tab trans" >Now Playing</span></a>
+			<a class="nodeco" href="#"><span class="play_tab trans" >Playlists</span></a>
+			<a class="nodeco" href="#"><span class="play_tab trans" >Library</span></a>
+		</div>
+		
+		<div id="play_content">
+		<span id="current_tab_name">Now Playing</span>
+		<div id="current_tab_tabs">
+			<a class="nodeco" href="#"><span class="play_tab trans" >Artist</span></a>
+			<a class="nodeco" href="#"><span class="play_tab trans" >Lyrics</span></a>
+			<a class="nodeco" href="#"><span class="play_tab trans" >History</span></a>
+		</div>
+		
+		</div>
+		
+	</div>
+{% endblock %}
+
+{% load i18n %}

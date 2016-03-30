@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+
+{% block css %}
+	{% include 'base/css.html' %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/default.css" %}" >
+	<link rel="stylesheet" type="text/css" href="{% static "css/my_uploads.css" %}" >
+	<link rel="stylesheet" type="text/css" href="{% static "css/text.css" %}" >
+	<link rel="stylesheet" type="text/css" href="{% static "css/tag.css" %}" >
+{% endblock %}
+
+{% block corpo %}
+	<div id="body">
+		<h2>{% blocktrans with tag=query %}
+			Results matching '{{ tag }}'
+		{% endblocktrans %}</h2>
+		<p><label>Popular tags:</label> {% for most in mostTagged %}<a class="nodeco" href="/tag/{{ most.0.tag }}"><span class="tag">{{ most.0.tag }}</span></a><span class="tagCounter"> x {{ most.1 }}</span> {% endfor %}
+		
+		<div id="tagResults">
+			<div id="images">
+				<h3>{% trans "Images" %}</h3>
+				{% for image in images %}
+					{% include 'img/thumb.html' with imagem=image %}
+				{% endfor %}
+			</div>
+			
+			<div id="texts">
+				<h3>{% trans "Texts" %}</h3>
+				{% for text in texts %}
+					{% include 'txt/thumb.html' with txt=text %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

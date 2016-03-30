@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block body %}
+{% include 'selectMenu.js' with elementId='menuButtonCodigo' %}
+
+{% include 'base/ads.html' %}
+
+<h2>{% trans "My codes" %}</h2>
+<br>
+<table class="full"  border=0>
+{% for txt in txts %}
+<tr style="border: 1px solid black;">
+	<td>
+		<h3>{% trans "Title" %}: {{ txt.titulo }}</h3>
+		<p><b>{% trans "Language" %}:</b> {{ txt.language }}</p>
+		<p><b>{% trans "Views" %}:</b> {{ txt.views }}<br></p>
+		<p><b>{% trans "Exposure" %}:</b> 
+			{% if txt.exposure == 0 %}
+				{% trans "Private" %}
+			{% else %}
+				{% if txt.exposure == 1 %}
+					{% trans "Not listed" %}
+				{% else %}
+					{% trans "Public" %}
+				{% endif %}
+			{% endif %}</p>
+		<br>
+		<a href="/v/{{ txt.id }}/t">{% trans "See" %}</a> | <a href="/v/{{ txt.id }}/t/remove">{% trans "Remove" %}</a>
+	</td>
+</tr>
+
+{% if forloop.counter|divisibleby:3 %}
+	</table>
+	<br>
+	{% include "base/ads.html" %}
+	<br>
+	<table class="full" border=0>
+{% endif %}
+
+
+{% endfor %}
+</table>
+{% endblock %}
+
+{% block ads %}
+{% endblock %}
